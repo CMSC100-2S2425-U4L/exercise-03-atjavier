@@ -33,7 +33,7 @@ function stringReverse(password) {
     return revPw;
 }
 
-function createUser(name, pass1, pass2) {
+function storePassword(name, pass1, pass2) {
     let newpass;
     if (validatePassword(pass1, pass2)) {
         newpass = stringReverse(pass1);
@@ -48,5 +48,5 @@ function createUser(name, pass1, pass2) {
 }
 
 
-
+console.log(storePassword("John", "Pass1234", "Pass1234"));
 
