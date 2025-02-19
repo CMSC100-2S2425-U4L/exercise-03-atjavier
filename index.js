@@ -3,13 +3,15 @@ function validatePassword(input, password) {
     let length = input.length;
 
     if (input === password) {
-        for (let i = 0; i != length; i++) {
-            if (input[i] >= "A" && input[i] <= "Z") {
-                for (let j = 0; j != length; j++) {
-                    if (input[j] >= "a" && input[j] <= "z") {
-                        for (let k = 0; k != length; k++) {
-                            if (input[k] >= "0" && input[k] <= "9") {
-                                return true;
+        if (input.length >= 8) {
+            for (let i = 0; i != length; i++) {
+                if (input[i] >= "A" && input[i] <= "Z") {
+                    for (let j = 0; j != length; j++) {
+                        if (input[j] >= "a" && input[j] <= "z") {
+                            for (let k = 0; k != length; k++) {
+                                if (input[k] >= "0" && input[k] <= "9") {
+                                    return true;
+                                }
                             }
                         }
                     }
@@ -45,7 +47,6 @@ function createUser(name, pass1, pass2) {
     return user;
 }
 
-// console.log(createUser("John", "Pass12345", "Pass12345"));
 
 
 
