@@ -1,29 +1,39 @@
-const re = /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{8,}/;
+function validatePassword(input, password) {
+    let flag = false;
+    let length = input.length;
 
-function validatePassword (input, password) {
-    if (re.test(input) && re.test(password)) {
-        if(input === password){
-            return true;
-        } else{
-            return false;
+    if (input === password) {
+        for (let i = 0; i != length; i++) {
+            if (input[i] >= "A" && input[i] <= "Z") {
+                for (let j = 0; j != length; j++) {
+                    if (input[j] >= "a" && input[j] <= "z") {
+                        for (let k = 0; k != length; k++) {
+                            if (input[k] >= "0" && input[k] <= "9") {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
         }
+        return false;
     } else {
         return false;
     }
 }
 
-function stringReverse (password) {
-    let length = password.length-1;
+function stringReverse(password) {
+    let length = password.length - 1;
     let revPw = "";
-    for (let i = length; i!=-1; i--){
-        revPw = revPw+password[i];
+    for (let i = length; i != -1; i--) {
+        revPw = revPw + password[i];
     }
     return revPw;
 }
 
-function createUser (name, pass1, pass2) {
+function createUser(name, pass1, pass2) {
     let newpass;
-    if (validatePassword(pass1, pass2)){
+    if (validatePassword(pass1, pass2)) {
         newpass = stringReverse(pass1);
     } else {
         newpass = pass1;
@@ -35,7 +45,7 @@ function createUser (name, pass1, pass2) {
     return user;
 }
 
-console.log(createUser("John", "Pass123", "Pass12345"));
+// console.log(createUser("John", "Pass12345", "Pass12345"));
 
 
 
