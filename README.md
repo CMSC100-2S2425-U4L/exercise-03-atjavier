@@ -1,5 +1,3 @@
-# Name: Adrian Jericho T. Javier
-# Section: CMSC 100 U-4L:
 # CMSC 100 Exercise 3
 The program provides a set of functions to validate, reverse, and store passwords in an object.
 
